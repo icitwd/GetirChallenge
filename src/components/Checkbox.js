@@ -1,6 +1,6 @@
 import React from "react";
 
-const Checkbox = ({ name, tags }) => {
+const Checkbox = ({ name, tags, count }) => {
   return (
     <div class="flex items-center">
       <input
@@ -15,7 +15,7 @@ const Checkbox = ({ name, tags }) => {
         class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
       >
         {name}
-        {tags}
+        {tags}({count})
       </label>
     </div>
   );

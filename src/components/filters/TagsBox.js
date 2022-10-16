@@ -10,6 +10,13 @@ const TagsBox = () => {
   const z = Array.from(new Set(y));
   const [query, setQuery] = useState("");
 
+  const totalCount = [];
+  y.map((duplicated) => {
+    totalCount[duplicated] = (totalCount[duplicated] || 0) + 1;
+    return totalCount;
+  });
+
+  console.log(totalCount);
   return (
     <>
       <FilterBox title="Tags">
@@ -22,7 +29,7 @@ const TagsBox = () => {
             {z
               .filter((tag) => tag.toLowerCase().startsWith(query))
               .map((tag) => {
-                return <Checkbox key={tag} tags={tag} />;
+                return <Checkbox key={tag} tags={tag} count="5" />;
               })}
           </div>
         </div>
