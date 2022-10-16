@@ -5,6 +5,7 @@ import SortingBox from "./components/filters/SortingBox";
 import BrandsBox from "./components/filters/BrandsBox";
 import TagsBox from "./components/filters/TagsBox";
 import Cart from "./components/Cart";
+import MugButton from "./components/MugButton";
 
 function App() {
   return (
@@ -19,12 +20,8 @@ function App() {
         <div className="flex flex-col space-y-4" style={{ width: 608 }}>
           <h3 className="text-gray-400">Products</h3>
           <div className="flex flex-row space-x-2">
-            <button className="py-1 px-4 text-xs bg-blue-400 rounded text-white">
-              mug
-            </button>
-            <button className="py-1 px-4 text-xs text-blue-400 rounded bg-gray-200">
-              shirt
-            </button>
+            <MugButton>mug</MugButton>
+            <MugButton>shirt</MugButton>
           </div>
 
           <ProductList />
