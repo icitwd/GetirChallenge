@@ -2,7 +2,7 @@ import React from "react";
 
 const PriceText = ({ price, currency = "$" }) => {
   return (
-    <span className="text-blue-500 font-medium text-sm">
+    <span className="text-cyan-600 font-medium text-sm">
       {currency} {price}
     </span>
   );

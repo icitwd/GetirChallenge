@@ -4,9 +4,9 @@ import ProductList from "./components/ProductList";
 import SortingBox from "./components/filters/SortingBox";
 import BrandsBox from "./components/filters/BrandsBox";
 import TagsBox from "./components/filters/TagsBox";
-import Cart from "./components/Cart";
-import MugButton from "./components/MugButton";
-
+import Basket from "./components/Basket";
+import ItemTypes from "./components/filters/ItemTypes";
+import Footer from "./components/Footer";
 function App() {
   return (
     <div className="bg-gray-100 flex flex-col">
@@ -17,17 +17,16 @@ function App() {
           <BrandsBox />
           <TagsBox />
         </div>
+
         <div className="flex flex-col space-y-4" style={{ width: 608 }}>
-          <h3 className="text-gray-400">Products</h3>
-          <div className="flex flex-row space-x-2">
-            <MugButton>mug</MugButton>
-            <MugButton>shirt</MugButton>
-          </div>
+          <h4 className="text-gray-400">Products</h4>
+          <ItemTypes />
 
           <ProductList />
         </div>
-        <Cart />
+        <Basket />
       </div>
+      <Footer />
     </div>
   );
 }

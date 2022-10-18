@@ -1,20 +1,22 @@
 import React from "react";
 
-const RadioInput = () => {
+const RadioInput = ({ label, value, checked, onChange, name }) => {
   return (
-    <div class="flex items-center mb-4">
+    <div className="flex items-center">
       <input
-        id="default-radio-1"
+        id={`radio-${value}`}
+        name={name}
         type="radio"
-        value=""
-        name="default-radio"
-        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+        value={value}
+        checked={checked}
+        className="w-4 h-4 text-cyan-600 bg-gray-100 border-gray-300"
+        onChange={(event) => onChange(event.target.value)}
       />
       <label
-        for="default-radio-1"
-        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+        htmlFor={`radio-${value}`}
+        className="ml-2 text-sm font-sm text-gray-900"
       >
-        Default radio
+        {label}
       </label>
     </div>
   );
