@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
 import { useDispatch } from "react-redux";
-import useItems from "../hooks/use-items";
+import useItems from "../../hooks/use-items";
 import {
   decrementBasketItem,
   incrementBasketItem,
-} from "../redux/reducers/basketSlice";
+} from "../../redux/reducers/basketSlice";
 
-import PriceText from "./PriceText";
+import PriceText from "../common/PriceText";
 
 const BasketItem = ({ basketItem }) => {
   const { items } = useItems();

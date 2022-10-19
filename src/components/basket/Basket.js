@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import useItems from "../hooks/use-items";
+import useItems from "../../hooks/use-items";
 
-import { selectBasket } from "../redux/reducers/basketSlice";
+import { selectBasket } from "../../redux/reducers/basketSlice";
 import BasketItem from "./BasketItem";
 
 const Basket = () => {

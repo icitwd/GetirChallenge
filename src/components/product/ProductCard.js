@@ -6,8 +6,8 @@ import {
   addBasketItem,
   removeBasketItem,
   selectBasket,
-} from "../redux/reducers/basketSlice";
-import PriceText from "./PriceText";
+} from "../../redux/reducers/basketSlice";
+import PriceText from "../common/PriceText";
 
 export default function ProductCard({ product }) {
   const basket = useSelector(selectBasket);
@@ -34,7 +34,7 @@ export default function ProductCard({ product }) {
       <button
         className={classNames(
           "rounded border border-cyan-600 w-full text-xs text-white py-1",
-          isAddedToBasket ? "bg-white text-cyan-600" : "bg-cyan-600 text-white"
+          isAddedToBasket ? "bg-white text-black" : "bg-cyan-600 text-white"
         )}
         onClick={() =>
           isAddedToBasket

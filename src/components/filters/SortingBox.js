@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import RadioInput from "../RadioInput";
+import RadioInput from "../inputs/RadioInput";
 import FilterBox from "./FilterBox";
 import {
   selectSortByFilter,

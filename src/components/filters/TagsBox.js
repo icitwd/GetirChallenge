@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Checkbox from "../Checkbox";
-import SearchInput from "../SearchInput";
+
+import Checkbox from "../checkbox/Checkbox";
+import SearchInput from "../inputs/SearchInput";
 import FilterBox from "./FilterBox";
 import items from "../../data/items.json";
 import {
@@ -16,12 +17,6 @@ const TagsBox = () => {
   const tagsArray = items.map((item) => item.tags);
   const tagsFlat = tagsArray.flat();
   const itemsData = Array.from(new Set(tagsFlat));
-  const totalCount = [];
-
-  tagsFlat.map((duplicated) => {
-    totalCount[duplicated] = (totalCount[duplicated] || 0) + 1;
-    return totalCount;
-  });
 
   const tagFilters = useSelector(selectTagFilters);
   const dispatch = useDispatch();
@@ -67,7 +62,7 @@ const TagsBox = () => {
                 <Checkbox
                   key={tag}
                   label={tag}
-                  count="5"
+                  count=""
                   onChange={(isChecked) =>
                     isChecked
                       ? dispatch(addTagFilter(tag))

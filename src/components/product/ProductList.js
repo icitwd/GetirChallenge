@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ProductCard from "./ProductCard";
-import useItems from "../hooks/use-items";
-import ProductsPagination from "./ProductsPagination";
+import ProductsPagination from "../pagination/ProductsPagination";
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   return (

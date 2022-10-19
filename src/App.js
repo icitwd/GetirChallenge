@@ -1,10 +1,9 @@
-import "./App.css";
 import Header from "./components/Header";
-import ProductList from "./components/ProductList";
+import ProductList from "./components/product/ProductList";
 import SortingBox from "./components/filters/SortingBox";
 import BrandsBox from "./components/filters/BrandsBox";
 import TagsBox from "./components/filters/TagsBox";
-import Basket from "./components/Basket";
+import Basket from "./components/basket/Basket";
 import ItemTypes from "./components/filters/ItemTypes";
 import Footer from "./components/Footer";
 function App() {

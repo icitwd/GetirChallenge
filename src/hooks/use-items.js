@@ -1,7 +1,6 @@
-import { logDOM } from "@testing-library/react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
-
+//import FetchService from "../service/FetchService";
 import items from "../data/items.json";
 import { selectBasket } from "../redux/reducers/basketSlice";
 import {
@@ -10,7 +9,6 @@ import {
   selectSortByFilter,
   selectTagFilters,
 } from "../redux/reducers/filtersSlice";
-import Service from "../service/service.js";
 
 function useItems() {
   const basket = useSelector(selectBasket);
@@ -18,11 +16,19 @@ function useItems() {
   const tagFilters = useSelector(selectTagFilters);
   const sortByFilter = useSelector(selectSortByFilter);
   const itemTypesFilters = useSelector(selectItemTypesFilter);
-  const itemService = new Service();
-  const [products, setProducts] = useState([]);
+  //const itemService = new FetchService();
 
-  itemService.getCompanies.then((result) => setProducts(result));
-  console.log(products);
+  //const [fetchedItems, setFetchItems] = useState([]);
+
+  //useEffect(() => {
+  //const fetchData = async () => {
+  //const data = await itemService.getItems();
+
+  //setFetchItems(data.data);
+  //};
+  //fetchData().catch(console.error);
+  //}, []);
+  //console.log(fetchedItems);
 
   const filteredItems = useMemo(
     () =>

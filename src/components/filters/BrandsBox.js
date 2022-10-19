@@ -1,12 +1,10 @@
 import React, { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Checkbox from "../Checkbox";
-import SearchInput from "../SearchInput";
+import Checkbox from "../checkbox/Checkbox";
+import SearchInput from "../inputs/SearchInput";
 import FilterBox from "./FilterBox";
 import companiesData from "../../data/companies.json";
-import { getCompanies } from "../../api/companies.json";
-
 import {
   addBrandFilter,
   addBrandFiltersBulk,
