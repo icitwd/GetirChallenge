@@ -8,6 +8,8 @@ const basketSlice = createSlice({
       reducer: (state, action) => {
         state.push(action.payload);
       },
+
+      // statei eklemeden önce payloadı customize etmek için var.
       prepare: (slug) => {
         return { payload: { id: slug, quantity: 1 } };
       },

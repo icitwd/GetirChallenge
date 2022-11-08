@@ -69,10 +69,12 @@ function useItems() {
 
           return null;
         }),
-    [brandFilters, itemTypesFilters, sortByFilter]
+    [brandFilters, itemTypesFilters, sortByFilter, tagFilters]
   );
 
   const totalBasketPrice = useMemo(() => {
+    //basketda itemler id olarak var. objeye erişmek için filter+map, 2. map de reducerdeki quantitye ulaşmak için var.
+    //mutation:
     const basketItems = items
       .filter((item) =>
         basket.map((basketItem) => basketItem.id).includes(item.slug)
