@@ -11,11 +11,11 @@ import ItemTypeButton from "../buttons/ItemTypeButton";
 const ItemTypes = () => {
   const itemTypesFilter = useSelector(selectItemTypesFilter);
   const dispatch = useDispatch();
-  const { items } = useItems();
+  const { fetchedItems } = useItems();
 
   const itemTypes = useMemo(
-    () => [...new Set(items.map((item) => item.itemType))],
-    [items]
+    () => [...new Set(fetchedItems.map((item) => item.itemType))],
+    [fetchedItems]
   );
 
   return (

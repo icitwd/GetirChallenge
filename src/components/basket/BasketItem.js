@@ -9,14 +9,14 @@ import {
 import PriceText from "../common/PriceText";
 
 const BasketItem = ({ basketItem }) => {
-  const { items } = useItems();
+  const { fetchedItems, items } = useItems();
   const dispatch = useDispatch();
 
   const product = useMemo(
     () => items.find((item) => item.slug === basketItem.id),
     [basketItem.id, items]
   );
-
+  //console.log("hello" + items);
   return (
     <div className="flex flex-row items-center justify-between border-b space-x-12 px-2 py-4">
       <div className="flex flex-col space-y-1">

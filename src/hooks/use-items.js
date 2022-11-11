@@ -1,8 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-//import FetchService from "../service/FetchService";
+import FetchService from "../services/FetchService";
 import items from "../data/items.json";
-import { selectBasket } from "../redux/reducers/basketSlice";
+import { addBasketItem, selectBasket } from "../redux/reducers/basketSlice";
 import {
   selectBrandFilters,
   selectItemTypesFilter,
@@ -16,19 +16,19 @@ function useItems() {
   const tagFilters = useSelector(selectTagFilters);
   const sortByFilter = useSelector(selectSortByFilter);
   const itemTypesFilters = useSelector(selectItemTypesFilter);
-  //const itemService = new FetchService();
+  const itemService = new FetchService();
 
-  //const [fetchedItems, setFetchItems] = useState([]);
+  const [fetchedItems, setFetchItems] = useState([]);
 
-  //useEffect(() => {
-  //const fetchData = async () => {
-  //const data = await itemService.getItems();
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await itemService.getItems();
 
-  //setFetchItems(data.data);
-  //};
-  //fetchData().catch(console.error);
-  //}, []);
-  //console.log(fetchedItems);
+      setFetchItems(data.data);
+    };
+    fetchData().catch(console.error);
+  }, [addBasketItem]);
+  console.log(fetchedItems);
 
   const filteredItems = useMemo(
     () =>
@@ -75,7 +75,7 @@ function useItems() {
   const totalBasketPrice = useMemo(() => {
     //basketda itemler id olarak var. objeye erişmek için filter+map, 2. map de reducerdeki quantitye ulaşmak için var.
     //mutation:
-    const basketItems = items
+    const basketItems = fetchedItems
       .filter((item) =>
         basket.map((basketItem) => basketItem.id).includes(item.slug)
       )
@@ -95,7 +95,7 @@ function useItems() {
     }, 0);
   }, [basket]);
 
-  return { items, filteredItems, totalBasketPrice };
+  return { fetchedItems, filteredItems, totalBasketPrice, items };
 }
 
 export default useItems;
